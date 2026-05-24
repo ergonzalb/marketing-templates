@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Author Pro — Get The Exact System I Used To Create [Result] In [Timeframe]</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #fff;
+        }
+        
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Section i: Hero */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: #1a1a1a;
+        }
+        
+        .hero-subheadline {
+            font-size: 1.4rem;
+            color: #666;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+        
+        .hero-benefits {
+            font-size: 1.1rem;
+            color: #888;
+            margin-bottom: 32px;
+        }
+        
+        .video-placeholder {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 400px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .video-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200&q=80') center/cover;
+            opacity: 0.3;
+        }
+        
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+        
+        .play-button::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 24px solid #667eea;
+            border-top: 14px solid transparent;
+            border-bottom: 14px solid transparent;
+            margin-left: 6px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #1a1a1a;
+            color: #fff;
+            padding: 20px 48px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 16px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .cta-benefits {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            font-size: 0.95rem;
+            color: #666;
+            flex-wrap: wrap;
+        }
+        
+        .as-seen {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid #eee;
+        }
+        
+        .as-seen p {
+            font-size: 0.85rem;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        
+        .logos {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            opacity: 0.5;
+            flex-wrap: wrap;
+        }
+        
+        .logo-placeholder {
+            width: 100px;
+            height: 40px;
+            background: #ddd;
+            border-radius: 4px;
+        }
+        
+        /* Section ii: The Promise */
+        .promise {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .section-label {
+            font-size: 0.85rem;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+        
+        .promise h2 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 32px;
+            line-height: 1.3;
+        }
+        
+        .promise p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 24px;
+        }
+        
+        .highlight-box {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 32px;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+        
+        .highlight-box p {
+            color: #fff;
+            font-size: 1.2rem;
+            margin: 0;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin: 40px 0;
+        }
+        
+        .result-item {
+            text-align: center;
+            padding: 24px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .result-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #667eea;
+            display: block;
+        }
+        
+        .result-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 8px;
+        }
+        
+        /* Section iii: Proof */
+        .proof {
+            padding: 80px 0;
+        }
+        
+        .proof h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+        
+        .proof-image {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 300px;
+            border-radius: 12px;
+            margin: 32px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+        
+        /* Section iv: Genre & Moment */
+        .genre {
+            padding: 80px 0;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        
+        .genre h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+        
+        .genre p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #ccc;
+            margin-bottom: 24px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin: 48px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #667eea;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.95rem;
+            color: #999;
+            margin-top: 8px;
+        }
+        
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            margin: 40px 0;
+        }
+        
+        .book-placeholder {
+            aspect-ratio: 2/3;
+            background: #333;
+            border-radius: 4px;
+        }
+        
+        /* Section v: Business Model */
+        .business {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .business h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+        
+        /* Section vi: Why Most Fail */
+        .failure {
+            padding: 80px 0;
+        }
+        
+        .failure h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+        
+        /* Section vii: Three Paths */
+        .paths {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .paths h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 48px;
+        }
+        
+        .path-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        
+        .path-card {
+            background: #fff;
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .path-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+            color: #667eea;
+        }
+        
+        .path-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        /* Section viii: Case Study */
+        .case-study {
+            padding: 80px 0;
+        }
+        
+        .case-study h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+        
+        /* Section ix: How It Works */
+        .how-it-works {
+            padding: 80px 0;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        
+        .how-it-works h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 48px;
+            text-align: center;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        
+        .step {
+            text-align: center;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #667eea;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 24px;
+        }
+        
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+        }
+        
+        .step p {
+            color: #ccc;
+            line-height: 1.7;
+        }
+        
+        /* Section x: Step Inside */
+        .step-inside {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .step-inside h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+        
+        /* Section xi: Validation */
+        .validation {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .validation h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 48px;
+        }
+        
+        .testimonial {
+            background: #fff;
+            padding: 32px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-left: 4px solid #667eea;
+        }
+        
+        .testimonial p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: #667eea;
+        }
+        
+        /* Section xii: Training */
+        .training {
+            padding: 80px 0;
+        }
+        
+        .training h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+        
+        .module-list {
+            background: #f8f9fa;
+            padding: 32px;
+            border-radius: 12px;
+            margin: 32px 0;
+        }
+        
+        .module-list h3 {
+            margin-bottom: 16px;
+            color: #667eea;
+        }
+        
+        .module-list ul {
+            list-style: none;
+        }
+        
+        .module-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #e0e0e0;
+            color: #666;
+        }
+        
+        .module-list li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            text-align: center;
+        }
+        
+        .final-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+        
+        .final-cta .price {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 32px;
+        }
+        
+        .final-cta .cta-button {
+            background: #fff;
+            color: #667eea;
+            font-size: 1.3rem;
+            padding: 24px 56px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .results-grid,
+            .stats-grid,
+            .path-cards,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .book-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .promise h2,
+            .proof h2,
+            .genre h2,
+            .business h2,
+            .failure h2,
+            .paths h2,
+            .case-study h2,
+            .how-it-works h2,
+            .step-inside h2,
+            .validation h2,
+            .training h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Section i: Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Get The Exact [System Name] I Used To [Achieve Result] In [Timeframe]</h1>
+            <p class="hero-subheadline">No [Problem 1]. No [Problem 2]. No [Problem 3]. No [Problem 4].</p>
+            <p class="hero-benefits">Press Play Below To See How [Solution] Turns A Single [Input] Into [Outcome]</p>
+            
+            <div class="video-placeholder">
+                <div class="play-button"></div>
+            </div>
+            
+            <p style="font-size: 1.3rem; font-weight: 700; margin-bottom: 24px;">Get The Complete [System Name]</p>
+            
+            <a href="#order" class="cta-button">Get Instant Access Now</a>
+            
+            <div class="cta-benefits">
+                <span>✓ [Benefit 1]</span>
+                <span>✓ [Benefit 2]</span>
+                <span>✓ [Benefit 3]</span>
+            </div>
+            
+            <div class="as-seen">
+                <p>As Seen On</p>
+                <div class="logos">
+                    <div class="logo-placeholder"></div>
+                    <div class="logo-placeholder"></div>
+                    <div class="logo-placeholder"></div>
+                    <div class="logo-placeholder"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section ii: The Promise -->
+    <section class="promise">
+        <div class="container">
+            <p class="section-label">i. The promise</p>
+            <h2>You Do Not Need To Be [Expert/Professional].</h2>
+            
+            <p>You need a system that turns a single [input] into [desired outcome]. Even if you have never [done this] in your life.</p>
+            
+            <p>[Timeframe] ago, this was impossible. It is not anymore.</p>
+            
+            <p>With [Product Name] you can [achieve result]. A real one. One that [target audience] [action], [action], and [action]. Not because you suddenly became [expert]. Because the system does what you cannot.</p>
+            
+            <div class="highlight-box">
+                <p>[Number] [files/tools]. [Number] questions. [AI/Tool] [action] with you. [Step] by [step].</p>
+            </div>
+            
+            <p>It builds [deliverable]. [Deliverable] become [plural]. [Plural] build [outcome].</p>
+            
+            <p>I [achieved result] in [timeframe]. It [outperformed metric] on [platform]. And every day, [ongoing benefit].</p>
+            
+            <div class="results-grid">
+                <div class="result-item">
+                    <span class="result-number">[Stat 1]</span>
+                    <span class="result-label">[Label 1]</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-number">[Stat 2]</span>
+                    <span class="result-label">[Label 2]</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-number">[Stat 3]</span>
+                    <span class="result-label">[Label 3]</span>
+                </div>
+            </div>
+            
+            <p>Here is why that matters to you.</p>
+            
+            <p>[Target audience] do not [action once]. They [action repeatedly]. And [platform] pays you for every [unit] they [consume].</p>
+            
+            <p>[Product 1] leads to [Product 2] leads to [Product 3]. Every [product] multiplies every [customer]. There are more [customers] hunting for [solution] than there are [competitors] producing them. That is the gap. And with this system you can produce [deliverables] faster than they can [consume] them.</p>
+            
+            <p>One [deliverable] is a project. A [series/collection] is [business outcome]. This system is built for [series/collection].</p>
+            
+            <p>You can start tonight.</p>
+            
+            <p>[Action the files].</p>
+            <p>Answer the questions.</p>
+            <p>Your first [deliverable] is underway before you go to bed.</p>
+            
+            <p>If that makes sense to you, you do not need the rest of this page.</p>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 16px;">Get [Product Name] — $[Price]</p>
+                <a href="#order" class="cta-button">Get Instant Access Now</a>
+                <div class="cta-benefits" style="margin-top: 16px;">
+                    <span>✓ [Benefit 1]</span>
+                    <span>✓ [Benefit 2]</span>
+                    <span>✓ [Benefit 3]</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section iii: Proof -->
+    <section class="proof">
+        <div class="container">
+            <p class="section-label">ii. Proof, on demand</p>
+            <h2>What You Just Watched Was Real</h2>
+            
+            <p>[Number] [files/tools]. One [AI/Tool]. A complete [system] that [action 1], [action 2], and [action 3] a [deliverable] with you.</p>
+            
+            <p>Go to [Platform] right now. Search [Your Product/Result].</p>
+            
+            <div class="proof-image">[Proof Image Placeholder]</div>
+            
+            <p>That is my [deliverable]. [Number] [deliverables]. [Metric]. [Timeframe] under [brand/pen name].</p>
+            
+            <p>Real [elements]. Real [social proof]. Real [ongoing benefit] while you read this sentence.</p>
+            
+            <p>I did not [create] these [deliverables]. [AI/Tool] did. I directed. The framework handled the [process]. The [output] on those [deliverables] are what you get when you run the exact [number]-file system you are about to get.</p>
+        </div>
+    </section>
+
+    <!-- Section iv: Genre & Moment -->
+    <section class="genre">
+        <div class="container">
+            <p class="section-label">iii. The [market] & the moment</p>
+            <h2>Why [Market]. And Why Right Now.</h2>
+            
+            <p>[Market description with emotional hook].</p>
+            
+            <p>[Target audience] come here to [desired emotional state].</p>
+            
+            <p>That is the one promise every [market] keeps.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">[Stat 1]%</span>
+                    <span class="stat-label">[Label 1]</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">$[Stat 2]B</span>
+                    <span class="stat-label">[Label 2]</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">[Stat 3]K</span>
+                    <span class="stat-label">[Label 3]</span>
+                </div>
+            </div>
+            
+            <p>[Success story of market leader].</p>
+            
+            <div class="book-grid">
+                <div class="book-placeholder"></div>
+                <div class="book-placeholder"></div>
+                <div class="book-placeholder"></div>
+                <div class="book-placeholder"></div>
+                <div class="book-placeholder"></div>
+            </div>
+            
+            <p>These are the [deliverables] every [target customer] knows. These are the giants of the [market].</p>
+            
+            <p>Same shelf. Same [customer]. Same opportunity.</p>
+        </div>
+    </section>
+
+    <!-- Section v: Business Model -->
+    <section class="business">
+        <div class="container">
+            <p class="section-label">iv. The business model</p>
+            <h2>[Customers] [Action]. And I Get Paid For Every [Unit] They [Consume].</h2>
+            
+            <p>Here is why.</p>
+            
+            <p>Most [target customers] live inside [platform]. For about $[price] a month, they [action] whatever they want and [consume] as much as they want. It is a buffet, and they binge.</p>
+            
+            <p>[Platform] pays [creators] per [unit consumed]. Not per [transaction]. Per [unit].</p>
+            
+            <p>[Product 1] pays me roughly $[amount] every time a [customer] [consumes] it cover to cover. A [series] [consumption] pays $[amount]. A [larger series] would pay around $[amount].</p>
+            
+            <p>If [Product 2] exists, they [consume] it. If [Product 3] exists, they [consume] that too.</p>
+        </div>
+    </section>
+
+    <!-- Section vi: Why Most Fail -->
+    <section class="failure">
+        <div class="container">
+            <p class="section-label">v. Why most [people] stall</p>
+            <h2>Most [Deliverables] Die At [Milestone]... If They Even Get Started.</h2>
+            
+            <p>You have seen the [competing products]. You have seen the "[competing claim]" methods. Maybe you bought one. Maybe you tried it.</p>
+            
+            <p>And either you never started... or what came out the other end was not something you would put your name on.</p>
+            
+            <p>That is not your fault. The products might be fine. But [problem with competing solutions] is a gap nothing else closes.</p>
+            
+            <p>This is the system.</p>
+            
+            <p>This framework was built to change that.</p>
+        </div>
+    </section>
+
+    <!-- Section vii: Three Paths -->
+    <section class="paths">
+        <div class="container">
+            <p class="section-label">vi. Your path in</p>
+            <h2>Three Paths. One [Result]. The Start Of A [Business].</h2>
+            
+            <p>Here is how.</p>
+            
+            <div class="path-cards">
+                <div class="path-card">
+                    <h3>Done For You</h3>
+                    <p>You want a [deliverable] [created] for you. You make the creative decisions. [AI/Tool] does the heavy lifting. A complete [deliverable] without [doing the work] yourself.</p>
+                </div>
+                <div class="path-card">
+                    <h3>Done With You</h3>
+                    <p>You want to [create], but you need help. The system produces a strong first [version]. You [refine], [shape], and make it your own. Co-[creating], not outsourcing.</p>
+                </div>
+                <div class="path-card">
+                    <h3>Get More Done</h3>
+                    <p>The planning documents alone... [Document 1], [Document 2], [Document 3]... are pro-level architecture most [professionals] never produce. Use them to [create] better. Faster.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section viii: Case Study -->
+    <section class="case-study">
+        <div class="container">
+            <p class="section-label">vii. Case study</p>
+            <h2>Here Is What I Did With It. And What [Platform] Did Next.</h2>
+            
+            <p>I [action] [number] [files/tools] into [AI/Tool]. Answered [number] questions. [AI/Tool] [created] [number] [deliverables] in [timeframe].</p>
+            
+            <div class="proof-image">[Results Image Placeholder]</div>
+            
+            <p>Not [impressive metric]. But more than you'll pay for this entire system.</p>
+        </div>
+    </section>
+
+    <!-- Section ix: How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <p class="section-label">ix. How it works</p>
+            <h2>This Is How [Product Name] Works.</h2>
+            
+            <p style="text-align: center; color: #ccc; margin-bottom: 48px;">The entire system comes down to three steps.</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>PLAN.</h3>
+                    <p>[Action] [number] [files/tools] into [AI/Tool]. Answer [number] questions about the [deliverable] you want to [create]. [Timeframe]. You walk away with [number] planning documents that architect your entire [deliverable].</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>[CREATE].</h3>
+                    <p>Tell [AI/Tool] to start [creating]. [Unit] by [unit]. The framework holds the [quality]. The [system] holds the continuity. You [review] each [unit] as it comes out, give notes if you want, ask for the next one. [Timeframe]. You walk away with a finished [deliverable].</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>PUBLISH.</h3>
+                    <p>[Action] to [platform]. Set your [settings]. Hit [action]. [Platform] distributes to [customers] in [number] [locations]. [Formats]. [Number] formats from one [deliverable]. [Customer type] find it. [Outcome] start.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px;">
+                <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 16px;">Get The Complete [Product Name]</p>
+                <a href="#order" class="cta-button">Get Instant Access Now</a>
+                <div class="cta-benefits" style="margin-top: 16px; color: #ccc;">
+                    <span>✓ [Benefit 1]</span>
+                    <span>✓ [Benefit 2]</span>
+                    <span>✓ [Benefit 3]</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section x: Step Inside -->
+    <section class="step-inside">
+        <div class="container">
+            <p class="section-label">x. Step inside</p>
+            <h2>See It For Yourself.</h2>
+            
+            <p>Go through the exact steps I used to [achieve result].</p>
+            
+            <p>So... what are you going to [create] first?</p>
+            
+            <div style="margin-top: 40px;">
+                <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 16px;">Get The Complete [Product Name]</p>
+                <a href="#order" class="cta-button">Get Instant Access Now</a>
+                <div class="cta-benefits" style="margin-top: 16px;">
+                    <span>✓ [Benefit 1]</span>
+                    <span>✓ [Benefit 2]</span>
+                    <span>✓ [Benefit 3]</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section xi: Validation -->
+    <section class="validation">
+        <div class="container">
+            <p class="section-label">xi. Independent validation</p>
+            <h2>Don't Take My Word For It. I Didn't.</h2>
+            
+            <div class="testimonial">
+                <p>"[Quote about quality and craft from independent reviewer]"</p>
+                <span class="testimonial-author">— [Reviewer Name], [Review Context]</span>
+            </div>
+            
+            <div class="testimonial">
+                <p>"[Quote comparing to established names in the field]"</p>
+                <span class="testimonial-author">— [Reviewer Name], [Review Context]</span>
+            </div>
+            
+            <div class="testimonial">
+                <p>"[Quote about whether AI was used and why it couldn't be detected]"</p>
+                <span class="testimonial-author">— [Reviewer Name], [Review Context]</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section xii: Training -->
+    <section class="training">
+        <div class="container">
+            <p class="section-label">xii. Your guided path</p>
+            <h2>I Did Not Build This So You Could Fail.</h2>
+            
+            <p>You have bought products before. You got the files. You got excited. You opened them up. And then you realized you had no idea what to do first. Or second. Or after that.</p>
+            
+            <p>The files sat in a downloads folder. The tab stayed open for a week. Nothing got [published/launched]. Nothing got [earned].</p>
+            
+            <p>I am not letting that happen here.</p>
+            
+            <div class="module-list">
+                <h3>[Number]-Module Training Course</h3>
+                <ul>
+                    <li>✓ Module 1: [Topic 1]</li>
+                    <li>✓ Module 2: [Topic 2]</li>
+                    <li>✓ Module 3: [Topic 3]</li>
+                    <li>✓ Module 4: [Topic 4]</li>
+                    <li>✓ Module 5: [Topic 5]</li>
+                    <li>✓ ... and [number] more modules</li>
+                </ul>
+            </div>
+            
+            <p>Every step between your first idea and your first [outcome].</p>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="order">
+        <div class="container">
+            <h2>Get The Complete [Product Name]</h2>
+            <div class="price">$[Price]</div>
+            <a href="#" class="cta-button">Get Instant Access Now</a>
+            <div class="cta-benefits" style="margin-top: 24px; color: rgba(255,255,255,0.9);">
+                <span>✓ [Benefit 1]</span>
+                <span>✓ [Benefit 2]</span>
+                <span>✓ [Benefit 3]</span>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
