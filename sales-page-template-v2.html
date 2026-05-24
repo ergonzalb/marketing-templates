@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Product Name - Transform Your Results</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: #2e3192;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 0 auto 20px;
+            opacity: 0.95;
+        }
+        
+        /* Problem Section */
+        .problem {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .problem h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2d3748;
+        }
+        
+        .problem-content {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #4a5568;
+        }
+        
+        .problem-content p {
+            margin-bottom: 25px;
+        }
+        
+        /* Quote */
+        .quote {
+            background: #2e3192;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            font-size: 1.5rem;
+            font-style: italic;
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 0;
+        }
+        
+        .benefits h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #2d3748;
+        }
+        
+        .benefit-item {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 50px;
+            align-items: flex-start;
+        }
+        
+        .benefit-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #2e3192;
+            line-height: 1;
+            min-width: 80px;
+        }
+        
+        .benefit-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #2d3748;
+        }
+        
+        .benefit-content p {
+            color: #4a5568;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        /* Program Section */
+        .program {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .program h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #2d3748;
+        }
+        
+        .program-item {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .program-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #2e3192;
+        }
+        
+        .program-item p {
+            color: #4a5568;
+            line-height: 1.7;
+        }
+        
+        /* Checklist Section */
+        .checklist {
+            padding: 80px 0;
+        }
+        
+        .checklist h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #2d3748;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .checkmark {
+            color: #2e3192;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .checklist-item p {
+            color: #4a5568;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: #2e3192;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #2e3192;
+            padding: 20px 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .cta-note {
+            margin-top: 20px;
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+            
+            .benefit-item {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .benefit-number {
+                font-size: 2.5rem;
+            }
+            
+            .program-item {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Transform Your Results</h1>
+            <h2>Master Your [Key Outcome]</h2>
+            <p>Stop being controlled by [problem]. Learn to [solution] instead.</p>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <h2>You Know Exactly What to Do</h2>
+            <div class="problem-content">
+                <p>You've read the books. Attended the seminars. Set the goals.</p>
+                
+                <p>You know what needs to happen. The strategy is clear. The path is obvious.</p>
+                
+                <p>But when it's time to execute—something stops you.</p>
+                
+                <p>Maybe it's the [problem 1] that hits right before you're about to take action. The voice that says "not yet" or "you're not ready" or "what if you fail?"</p>
+                
+                <p>Maybe it's the [problem 2] that creeps in halfway through—questioning every decision, second-guessing yourself into paralysis.</p>
+                
+                <p>Maybe it's the patterns you keep repeating. The same [problem 3]. The same [problem 4]. The same internal resistance no matter how much you "know better."</p>
+                
+                <p><strong>Here's what's actually happening:</strong></p>
+                
+                <p>Your [root cause] is running the show. And until you learn to direct it—instead of being controlled by it—nothing changes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote -->
+    <section class="quote">
+        <div class="container">
+            <p>"The only way out is through—but you don't have to go alone."</p>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2>What Becomes Possible</h2>
+            
+            <div class="benefit-item">
+                <div class="benefit-number">01</div>
+                <div class="benefit-content">
+                    <h3>You Act Instead of Overthink</h3>
+                    <p>The gap between intention and execution disappears. You stop waiting to "feel ready" because you've learned to move from your center regardless of what you're feeling. Action becomes natural, not forced.</p>
+                </div>
+            </div>
+            
+            <div class="benefit-item">
+                <div class="benefit-number">02</div>
+                <div class="benefit-content">
+                    <h3>You Stay Grounded When Chaos Hits</h3>
+                    <p>External circumstances stop dictating your internal experience. Challenges arise? You feel them, acknowledge them, and choose your response instead of being hijacked by stress or overwhelm.</p>
+                </div>
+            </div>
+            
+            <div class="benefit-item">
+                <div class="benefit-number">03</div>
+                <div class="benefit-content">
+                    <h3>You Catch Patterns Before They Run You</h3>
+                    <p>The old loops become visible in real time. You feel the urge to [old behavior], but now you see what's underneath it. And with that awareness, you can interrupt the pattern before it takes over.</p>
+                </div>
+            </div>
+            
+            <div class="benefit-item">
+                <div class="benefit-number">04</div>
+                <div class="benefit-content">
+                    <h3>You Stop Needing Motivation</h3>
+                    <p>Aligned action becomes natural. You're not forcing yourself to "just do it" through sheer discipline. You're moving from a place of internal congruence—where your actions and your goals are in harmony.</p>
+                </div>
+            </div>
+            
+            <div class="benefit-item">
+                <div class="benefit-number">05</div>
+                <div class="benefit-content">
+                    <h3>You Show Up as the Person You've Been Trying to Become</h3>
+                    <p>Not through force. Not through "fake it till you make it." Through actually transforming the internal patterns that were keeping you stuck. You don't have to try to be confident or successful—you just are.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Section -->
+    <section class="program">
+        <div class="container">
+            <h2>How [Program Name] Works</h2>
+            
+            <div class="program-item">
+                <h3>🎯 Core Training Modules</h3>
+                <p>Comprehensive video training that walks you through the entire system step-by-step. Each module builds on the last, giving you a complete framework for transformation.</p>
+            </div>
+            
+            <div class="program-item">
+                <h3>📋 Implementation Worksheets</h3>
+                <p>Practical exercises and worksheets that help you apply what you learn immediately. No passive consumption—this is about real change through action.</p>
+            </div>
+            
+            <div class="program-item">
+                <h3>👥 Private Community Access</h3>
+                <p>Connect with others on the same journey. Share wins, get support when you're stuck, and stay accountable to your goals through the power of community.</p>
+            </div>
+            
+            <div class="program-item">
+                <h3>💬 Direct Support</h3>
+                <p>Get your questions answered and receive personalized guidance when you need it. We're here to ensure you succeed every step of the way.</p>
+            </div>
+            
+            <div class="program-item">
+                <h3>♾️ Lifetime Access</h3>
+                <p>Revisit the materials whenever you need to. This isn't a one-time fix—it's a foundation you build on for life. All future updates included.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checklist Section -->
+    <section class="checklist">
+        <div class="container">
+            <h2>This Is For You If...</h2>
+            
+            <div class="checklist-item">
+                <span class="checkmark">✓</span>
+                <p>You're done with surface-level fixes. You've tried the quick hacks and motivational content. You know real transformation requires going deeper.</p>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="checkmark">✓</span>
+                <p>You recognize your internal patterns are the bottleneck. You see that it's not what you know—it's how you're showing up that's keeping you stuck.</p>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="checkmark">✓</span>
+                <p>You're willing to do the work. Not just consume more information. Not just "think about it." Actually practice. Actually look at what's uncomfortable. Actually change.</p>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="checkmark">✓</span>
+                <p>You want to become someone who acts from alignment. Not someone who has to force themselves through willpower. Someone who moves naturally from their center.</p>
+            </div>
+            
+            <div class="checklist-item">
+                <span class="checkmark">✓</span>
+                <p>You're ready to stop being run by old patterns. The procrastination. The self-doubt. The resistance. You're ready to learn how to work with these patterns instead of being hijacked by them.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Begin?</h2>
+            <p>This program is for people ready to move now. Not someday. Not when conditions are perfect. Now.</p>
+            <p>You already know if this is for you. You've felt it the entire time you've been reading this page. That quiet "yes" underneath all the doubt and resistance.</p>
+            <p>Trust that.</p>
+            <a href="#" class="cta-button">Apply Now</a>
+            <p class="cta-note">Applications reviewed within 24 hours</p>
+        </div>
+    </section>
+</body>
+</html>
