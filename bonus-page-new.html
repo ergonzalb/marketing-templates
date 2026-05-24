@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Exclusive Bonuses</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 60px 0;
+            color: white;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .bonuses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .bonus-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bonus-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.2);
+        }
+        
+        .bonus-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+        
+        .bonus-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .bonus-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .bonus-card h3 {
+            font-size: 1.5rem;
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .bonus-card p {
+            color: #718096;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .bonus-value {
+            display: inline-block;
+            background: #edf2f7;
+            color: #667eea;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        
+        .access-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .access-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .tools-section {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 60px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .tools-section h2 {
+            color: white;
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .tool-card:hover {
+            transform: scale(1.02);
+        }
+        
+        .tool-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .tool-card h3 {
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .tool-card p {
+            color: #718096;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+        
+        .tool-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .tool-link:hover {
+            text-decoration: underline;
+        }
+        
+        .support-section {
+            text-align: center;
+            color: white;
+            padding: 40px;
+        }
+        
+        .support-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .support-section p {
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .support-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            color: #667eea;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        
+        .support-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .bonuses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tools-section {
+                padding: 30px 20px;
+            }
+            
+            .bonus-card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Your Exclusive Bonuses</h1>
+            <p>Get instant access to these premium tools and resources designed to accelerate your success</p>
+        </header>
+        
+        <div class="bonuses-grid">
+            <div class="bonus-card">
+                <div class="bonus-number">1</div>
+                <div class="bonus-icon">✅</div>
+                <h3>Implementation Checklist</h3>
+                <p>Step-by-step interactive checklist for setting up your system, training your AI agents, and launching your first product without missing anything critical.</p>
+                <div class="bonus-value">$97 Value</div>
+                <br>
+                <a href="#" class="access-btn">Access Checklist →</a>
+            </div>
+            
+            <div class="bonus-card">
+                <div class="bonus-number">2</div>
+                <div class="bonus-icon">📅</div>
+                <h3>30-Day Launch Planner</h3>
+                <p>Your day-by-day roadmap to a successful product launch. Interactive calendar with daily tasks, progress tracking, and completion markers.</p>
+                <div class="bonus-value">$67 Value</div>
+                <br>
+                <a href="#" class="access-btn">Open Planner →</a>
+            </div>
+            
+            <div class="bonus-card">
+                <div class="bonus-number">3</div>
+                <div class="bonus-icon">📊</div>
+                <h3>Profit Tracker Dashboard</h3>
+                <p>Track revenue, customers, expenses, and profitability in real-time. Visual charts show your financial progress and help optimize your business.</p>
+                <div class="bonus-value">$47 Value</div>
+                <br>
+                <a href="#" class="access-btn">Launch Tracker →</a>
+            </div>
+        </div>
+        
+        <div class="tools-section">
+            <h2>🚀 Additional Free Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">💰</div>
+                    <h3>Profit Calculator</h3>
+                    <p>Discover how much revenue you could generate with your own product based on your niche and audience size.</p>
+                    <a href="#" class="tool-link">Try Calculator →</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">🎯</div>
+                    <h3>Topic Generator</h3>
+                    <p>Enter your interests and skills to discover profitable product ideas with proven market demand.</p>
+                    <a href="#" class="tool-link">Generate Ideas →</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">🗺️</div>
+                    <h3>7-Figure Roadmap</h3>
+                    <p>The exact 7-step process to build a million-dollar business from scratch.</p>
+                    <a href="#" class="tool-link">View Roadmap →</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="support-section">
+            <h2>Need Help With Your Bonuses?</h2>
+            <p>Our support team is here to assist you with any questions</p>
+            <a href="mailto:support@example.com" class="support-btn">Contact Support</a>
+        </div>
+        
+        <footer>
+            <p>&copy; 2026 Your Company. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
