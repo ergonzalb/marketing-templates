@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{BONUS_NAME}} - Download Your Bonus</title>
+    <style>
+        :root {
+            --primary-color: {{PRIMARY_COLOR}};
+            --secondary-color: {{SECONDARY_COLOR}};
+            --accent-color: {{ACCENT_COLOR}};
+            --text-color: {{TEXT_COLOR}};
+            --bg-color: {{BG_COLOR}};
+            --success-color: #10b981;
+            --font-heading: {{FONT_HEADING}};
+            --font-body: {{FONT_BODY}};
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--bg-color);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-family: var(--font-heading), sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* Success Banner */
+        .success-banner {
+            background: var(--success-color);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        /* Main Content */
+        .content {
+            padding: 60px 0;
+        }
+        
+        .bonus-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        
+        .bonus-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .bonus-header h2 {
+            font-family: var(--font-heading), sans-serif;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .bonus-value {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+        
+        .bonus-body {
+            padding: 40px;
+        }
+        
+        .bonus-description {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .bonus-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .bonus-features li {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .bonus-features li:before {
+            content: "✓";
+            color: var(--success-color);
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        /* Download Section */
+        .download-section {
+            background: #f8f9fa;
+            padding: 40px;
+            text-align: center;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+        
+        .download-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 20px 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 10px;
+        }
+        
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .download-note {
+            margin-top: 20px;
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        /* Support Section */
+        .support {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        }
+        
+        .support h3 {
+            font-family: var(--font-heading), sans-serif;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .support a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .bonus-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .bonus-body {
+                padding: 30px 20px;
+            }
+            
+            .download-button {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Success Banner -->
+    <div class="success-banner">
+        ✓ {{SUCCESS_MESSAGE}}
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1>{{HEADER_TITLE}}</h1>
+            <p class="subtitle">{{HEADER_SUBTITLE}}</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content">
+        <div class="container">
+            <div class="bonus-card">
+                <div class="bonus-header">
+                    <h2>{{BONUS_NAME}}</h2>
+                    <p class="bonus-value">Value: ${{BONUS_VALUE}}</p>
+                </div>
+                <div class="bonus-body">
+                    <p class="bonus-description">
+                        {{BONUS_DESCRIPTION}}
+                    </p>
+                    
+                    <ul class="bonus-features">
+                        <li>{{FEATURE_1}}</li>
+                        <li>{{FEATURE_2}}</li>
+                        <li>{{FEATURE_3}}</li>
+                        <li>{{FEATURE_4}}</li>
+                    </ul>
+
+                    <div class="download-section">
+                        <h3 style="margin-bottom: 20px; color: var(--primary-color);">Download Your Bonus</h3>
+                        <a href="{{DOWNLOAD_URL}}" class="download-button">{{DOWNLOAD_BUTTON_TEXT}}</a>
+                        <p class="download-note">{{DOWNLOAD_NOTE}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="support">
+                <h3>Need Help?</h3>
+                <p>{{SUPPORT_TEXT}}</p>
+                <p style="margin-top: 15px;">
+                    <a href="mailto:{{SUPPORT_EMAIL}}">{{SUPPORT_EMAIL}}</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; {{YEAR}} {{COMPANY_NAME}}. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
