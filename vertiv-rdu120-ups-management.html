@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertiv RDU120 UPS Management — Monitor & Manage Your Critical Power Systems From Anywhere</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --accent: #f59e0b;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f3f4f6;
+            --white: #ffffff;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--white);
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 100px 0 80px;
+            text-align: center;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+        
+        .hero-subheadline {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .video-placeholder {
+            background: rgba(0,0,0,0.3);
+            height: 350px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 40px auto;
+            max-width: 700px;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+        
+        .play-button::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 24px solid var(--primary);
+            border-top: 14px solid transparent;
+            border-bottom: 14px solid transparent;
+            margin-left: 6px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            padding: 20px 48px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 16px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .cta-benefits {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            font-size: 0.95rem;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+        
+        .price-tag {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        /* Section Styling */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-eyebrow {
+            font-size: 0.85rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+        
+        .section h2 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.3;
+        }
+        
+        .section p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        /* Problem Section */
+        .problem {
+            background: var(--bg-light);
+        }
+        
+        .problem-list {
+            background: var(--white);
+            padding: 32px;
+            border-radius: 12px;
+            margin: 32px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .problem-list p {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        
+        .problem-list p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Solution Section */
+        .solution {
+            background: var(--white);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin: 40px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 24px;
+            background: var(--bg-light);
+            border-radius: 12px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 8px;
+        }
+        
+        /* Features Section */
+        .features {
+            background: var(--bg-light);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background: var(--white);
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+        
+        .feature-card p {
+            font-size: 1rem;
+            margin: 0;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            background: var(--white);
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin: 40px 0;
+        }
+        
+        .step {
+            text-align: center;
+            padding: 32px;
+            background: var(--bg-light);
+            border-radius: 12px;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+        
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+        
+        .step p {
+            font-size: 1rem;
+            margin: 0;
+        }
+        
+        /* Investment Section */
+        .investment {
+            background: var(--bg-light);
+        }
+        
+        .value-stack {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .value-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .value-item:last-child {
+            border-bottom: none;
+        }
+        
+        .value-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        
+        .value-content p {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+        
+        .value-price {
+            font-weight: 700;
+            color: var(--primary);
+            white-space: nowrap;
+            margin-left: 20px;
+        }
+        
+        .value-total {
+            display: flex;
+            justify-content: space-between;
+            padding: 24px 0;
+            border-top: 2px solid var(--primary);
+            margin-top: 20px;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        
+        .guarantee-box {
+            background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+            color: var(--white);
+            padding: 32px;
+            border-radius: 12px;
+            margin: 32px 0;
+            text-align: center;
+        }
+        
+        .guarantee-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+        
+        .guarantee-box p {
+            color: rgba(255,255,255,0.9);
+            margin: 0;
+        }
+        
+        .final-price {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .final-price h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            background: var(--white);
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid #e5e7eb;
+            padding: 24px 0;
+        }
+        
+        .faq-question {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+        
+        .faq-answer {
+            color: var(--text-light);
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .final-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+        }
+        
+        .final-cta p {
+            color: rgba(255,255,255,0.9);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+        
+        /* Status indicators */
+        .status-ok { color: var(--success); }
+        .status-warning { color: var(--warning); }
+        .status-critical { color: var(--danger); }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .features-grid,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .section h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">OpenClaw Skill — One Command, Complete UPS Management</div>
+            <h1>Vertiv RDU120 UPS Management — Monitor & Manage Your Critical Power Systems From Anywhere</h1>
+            <p class="hero-subheadline">The OpenClaw skill that automates UPS monitoring and management — from health checks to firmware updates — through simple conversation</p>
+            
+            <div class="video-placeholder">
+                <div class="play-button"></div>
+            </div>
+            <p style="margin-bottom: 8px; opacity: 0.8;">Watch The Demo</p>
+            <p style="font-size: 1rem; margin-bottom: 24px; opacity: 0.7;">See how one command gives you complete UPS visibility and control</p>
+            
+            <div class="price-tag">Get Vertiv RDU120 UPS Management — $97</div>
+            <a href="#order" class="cta-button">Get Instant Access Now</a>
+            <div class="cta-benefits">
+                <span>✓ 30-Day Guarantee</span>
+                <span>✓ One-Time Payment</span>
+                <span>✓ Instant Access</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section i: The Problem -->
+    <section class="section problem" id="problem">
+        <div class="container">
+            <div class="section-eyebrow">i. The problem</div>
+            <h2>Most IT Teams Can't Proactively Manage UPS Systems Because The Data Is Trapped In Complex Interfaces</h2>
+            
+            <p>You know UPS monitoring is critical. You have Vertiv RDU120 cards installed. Then you stare at multiple browser tabs, CLI windows, and SNMP tools trying to get a clear picture.</p>
+            
+            <p>Sound familiar?</p>
+            
+            <div class="problem-list">
+                <p>• Logging into web interfaces for each UPS manually</p>
+                <p>• Decoding cryptic SNMP OID values</p>
+                <p>• Switching between REST API and SSH CLI depending on the task</p>
+                <p>• Missing critical battery alarms because they were buried in logs</p>
+                <p>• Spending hours compiling status reports for management</p>
+                <p>• Hesitating to perform firmware updates because of complex procedures</p>
+                <p>• No unified view of power health across your infrastructure</p>
+            </div>
+            
+            <p>By the time you've checked all your UPS units, the situation may have already changed. Or worse — you miss the warning signs before a critical failure.</p>
+            
+            <p>Here's the truth: The difference between teams who prevent downtime and those who react to it isn't better hardware. It's not bigger budgets.</p>
+            
+            <p><strong>It's speed of information.</strong> The ability to get instant, actionable UPS status without wrestling with complex interfaces.</p>
+            
+            <p>Most IT staff spend 30-60 minutes just gathering basic UPS health data. Some spend hours. And by the time the report is ready, the data is already stale.</p>
+            
+            <p>What if you could get complete UPS visibility in seconds? What if you could manage everything through simple conversation?</p>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <div class="price-tag" style="color: var(--text);">Get Vertiv RDU120 UPS Management — $97</div>
+                <a href="#order" class="cta-button">Get Instant Access Now</a>
+                <div class="cta-benefits" style="color: var(--text-light);">
+                    <span>✓ 30-Day Guarantee</span>
+                    <span>✓ One-Time Payment</span>
+                    <span>✓ Instant Access</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section ii: The Solution -->
+    <section class="section solution" id="solution">
+        <div class="container">
+            <div class="section-eyebrow">ii. The solution</div>
+            <h2>What If You Could Get Complete UPS Visibility With A Single Command?</h2>
+            
+            <p>Vertiv RDU120 UPS Management is an OpenClaw skill that automates your entire UPS monitoring and management workflow.</p>
+            
+            <p>Not a dashboard. Not a monitoring tool. A complete automation system that handles every aspect of UPS management — from health checks to firmware updates — through a simple conversation with your AI assistant.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">14+</span>
+                    <span class="stat-label">API Endpoints Automated</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Seconds</span>
+                    <span class="stat-label">Instead of Minutes</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1</span>
+                    <span class="stat-label">Command</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Zero</span>
+                    <span class="stat-label">Manual Interface Navigation</span>
+                </div>
+            </div>
+            
+            <p>You simply tell OpenClaw: "Check UPS status" or "Show me battery health" — and the skill takes over.</p>
+            
+            <p>It queries the RDU120 card. Analyzes power metrics. Checks battery health. Lists active alarms. Monitors environmental sensors. Retrieves configuration. All through natural conversation.</p>
+            
+            <p>All you do is ask questions and get instant, actionable answers.</p>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <div class="price-tag" style="color: var(--text);">Get Vertiv RDU120 UPS Management — $97</div>
+                <a href="#order" class="cta-button">Get Instant Access Now</a>
+                <div class="cta-benefits" style="color: var(--text-light);">
+                    <span>✓ 30-Day Guarantee</span>
+                    <span>✓ One-Time Payment</span>
+                    <span>✓ Instant Access</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section iii: What's Included -->
+    <section class="section features" id="features">
+        <div class="container">
+            <div class="section-eyebrow">iii. What's included</div>
+            <h2>Here's Everything The Skill Does For You</h2>
+            <p style="text-align: center; margin-bottom: 40px;">Complete UPS management automation. Real-time monitoring. Instant insights.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Health Check Automation</h3>
+                    <p>Instant comprehensive status combining card health, UPS overview, active alarms, and power metrics. Categorized as OK, Warning, Critical, or Unknown.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔋</div>
+                    <h3>Battery Monitoring</h3>
+                    <p>Real-time battery status, charge levels, runtime estimates, and health indicators. Never get caught off guard by battery failures.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Power Metrics</h3>
+                    <p>Complete input/output power analysis, load percentages, voltage readings, and frequency monitoring. Track power quality trends.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚨</div>
+                    <h3>Alarm Management</h3>
+                    <p>Instant access to active events and alarms. Filter by severity — critical, warning, or informational. Proactive problem detection.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌡️</div>
+                    <h3>Environmental Sensors</h3>
+                    <p>Temperature, humidity, and environmental monitoring. Protect your equipment from environmental threats.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>Configuration Access</h3>
+                    <p>View network, SNMP, Modbus, BACnet, email, and system configurations. Complete visibility into UPS setup.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Secure Multi-Protocol Access</h3>
+                    <p>REST API with Basic Auth or API tokens. SSH CLI fallback for troubleshooting. TLS encryption with certificate verification.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Safety-First Management</h3>
+                    <p>Role-based access control (view/control/administrator). Confirmation required for reboots, resets, and firmware updates. Credential masking in logs.</p>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 32px;">Everything is automated. You just ask natural questions and get instant answers. What used to take 30-60 minutes now takes seconds.</p>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <div class="price-tag" style="color: var(--text);">Get Vertiv RDU120 UPS Management — $97</div>
+                <a href="#order" class="cta-button">Get Instant Access Now</a>
+                <div class="cta-benefits" style="color: var(--text-light);">
+                    <span>✓ 30-Day Guarantee</span>
+                    <span>✓ One-Time Payment</span>
+                    <span>✓ Instant Access</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section iv: How It Works -->
+    <section class="section how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-eyebrow">iv. How it works</div>
+            <h2 style="text-align: center;">Three Steps. Complete UPS Visibility.</h2>
+            <p style="text-align: center; margin-bottom: 40px;">The entire process comes down to three simple steps.</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>CONNECT.</h3>
+                    <p>Configure your RDU120 credentials once — host, port, username, password. The skill securely stores them and handles authentication automatically.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>ASK.</h3>
+                    <p>Simply ask: "Check UPS status" or "What's the battery health?" The skill queries the RDU120, analyzes the data, and presents clear, actionable information.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>ACT.</h3>
+                    <p>Get instant insights. View reports. Identify issues. Perform management tasks with built-in safety confirmations. All through natural conversation.</p>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 32px; font-weight: 600;">Connect. Ask. Act.<br>From complex interface navigation to instant answers in seconds, not minutes.</p>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <div class="price-tag" style="color: var(--text);">Get Vertiv RDU120 UPS Management — $97</div>
+                <a href="#order" class="cta-button">Get Instant Access Now</a>
+                <div class="cta-benefits" style="color: var(--text-light);">
+                    <span>✓ 30-Day Guarantee</span>
+                    <span>✓ One-Time Payment</span>
+                    <span>✓ Instant Access</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section v: Investment -->
+    <section class="section investment" id="investment">
+        <div class="container">
+            <div class="section-eyebrow">v. Investment</div>
+            <h2>Here's Everything You Get Today</h2>
+            
+            <div class="value-stack">
+                <div class="value-item">
+                    <div class="value-content">
+                        <h3>Vertiv RDU120 UPS Management OpenClaw Skill</h3>
+                        <p>Complete automation skill with 14+ API endpoints, health check workflows, multi-protocol support, and safety controls. Works with any Vertiv RDU120-equipped UPS.</p>
+                    </div>
+                    <div class="value-price">$297 Value</div>
+                </div>
+                
+                <div class="value-item">
+                    <div class="value-content">
+                        <h3>Python Client Library</h3>
+                        <p>Production-ready RDU120Client class with authentication, error handling, health check automation, and privilege management. Extend or customize as needed.</p>
+                    </div>
+                    <div class="value-price">$97 Value</div>
+                </div>
+                
+                <div class="value-item">
+                    <div class="value-content">
+                        <h3>Complete API Reference</h3>
+                        <p>Detailed endpoint documentation, request/response examples, and troubleshooting guides for REST API and SSH CLI access.</p>
+                    </div>
+                    <div class="value-price">$67 Value</div>
+                </div>
+                
+                <div class="value-item">
+                    <div class="value-content">
+                        <h3>Setup & Configuration Guide</h3>
+                        <p>Step-by-step walkthrough for RDU120 card configuration, credential setup, TLS certificates, and security best practices.</p>
+                    </div>
+                    <div class="value-price">$47 Value</div>
+                </div>
+                
+                <div class="value-item">
+                    <div class="value-content">
+                        <h3>Usage Examples Library</h3>
+                        <p>Common monitoring patterns, health check workflows, alarm response procedures, and management task examples.</p>
+                    </div>
+                    <div class="value-price">$47 Value</div>
+                </div>
+                
+                <div class="value-total">
+                    <span>Total Value</span>
+                    <span>$555</span>
+                </div>
+            </div>
+            
+            <div class="guarantee-box">
+                <h3>30-Day "Love It or Leave It" Guarantee</h3>
+                <p>Try Vertiv RDU120 UPS Management risk-free for 30 days. Connect to your UPS. Run health checks. See how fast it really is. If you're not completely satisfied for any reason, just let us know and we'll refund every penny. No questions asked.</p>
+            </div>
+            
+            <div class="final-price" id="order">
+                <h3>Your Investment Today: $97</h3>
+                <a href="[YOUR_CHECKOUT_LINK]" class="cta-button">Get Instant Access Now</a>
+                <div class="cta-benefits" style="color: var(--text-light);">
+                    <span>✓ 30-Day Guarantee</span>
+                    <span>✓ One-Time Payment</span>
+                    <span>✓ Instant Access</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section vi: FAQ -->
+    <section class="section faq" id="faq">
+        <div class="container">
+            <div class="section-eyebrow">vi. Questions</div>
+            <h2>Got Questions? I've Got Answers.</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">What exactly is an OpenClaw skill?</div>
+                <div class="faq-answer">An OpenClaw skill is like an app for your AI assistant. It extends OpenClaw's capabilities with specialized knowledge and workflows. The Vertiv RDU120 skill adds complete UPS management automation — just install it once, and you can monitor and manage your UPS systems with simple commands.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Do I need technical skills to use this?</div>
+                <div class="faq-answer">Not at all. If you can have a conversation with an AI, you can use this skill. You simply ask questions like "Check UPS status" or "What's the battery health?" and the skill handles all the API calls, data analysis, and presentation. No need to understand REST APIs, SNMP, or CLI commands.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Will this work with my UPS system?</div>
+                <div class="faq-answer">This skill works with any UPS system that has a Vertiv Liebert IntelliSlot RDU120 communications card installed. This includes most Vertiv Liebert UPS models and many third-party UPS systems with RDU120 compatibility. Both REST API and SSH CLI access methods are supported.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How long does it really take to get started?</div>
+                <div class="faq-answer">Most users are up and running in 10-15 minutes. Just configure your RDU120 host, credentials, and preferred access method. The skill does the rest. Your first health check can happen immediately after setup.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can I customize what the skill does?</div>
+                <div class="faq-answer">Absolutely. The skill includes a complete Python client library that you can extend or modify. You can customize health check thresholds, add new monitoring patterns, integrate with your existing tools, or build automated workflows. Everything is open and extensible.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What if I don't like it?</div>
+                <div class="faq-answer">You have 30 days to try Vertiv RDU120 UPS Management risk-free. Connect it to your UPS. Run health checks. See how it transforms your monitoring workflow. If you're not completely satisfied for any reason, contact us for a full refund. No questions, no hassle.</div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <div class="price-tag" style="color: var(--text);">Get Vertiv RDU120 UPS Management — $97</div>
+                <a href="[YOUR_CHECKOUT_LINK]" class="cta-button">Get Instant Access Now</a>
+                <div class="cta-benefits" style="color: var(--text-light);">
+                    <span>✓ 30-Day Guarantee</span>
+                    <span>✓ One-Time Payment</span>
+                    <span>✓ Instant Access</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready To Transform UPS Management From Hours To Seconds?</h2>
+            <p>Join the IT teams who are replacing manual interface navigation with instant AI-powered insights. One command. Complete visibility. Zero complexity.</p>
+            
+            <p>You've seen what Vertiv RDU120 UPS Management can do. You've seen how it transforms 30-60 minutes of manual work into seconds. You've seen the 30-day guarantee that makes this a risk-free decision.</p>
+            
+            <p>Now it's time to choose.</p>
+            
+            <p>You can keep managing UPS systems the old way — logging into web interfaces, decoding SNMP, switching between tools, and compiling reports manually. Or you can let AI handle the complexity while you focus on strategic decisions and proactive management.</p>
+            
+            <p>The skill is ready. The documentation is complete. Your UPS systems could be under AI-powered management today.</p>
+            
+            <a href="[YOUR_CHECKOUT_LINK]" class="cta-button" style="background: var(--white); color: var(--primary);">Get Instant Access Now</a>
+            <div class="cta-benefits">
+                <span>✓ 30-Day Guarantee</span>
+                <span>✓ One-Time Payment</span>
+                <span>✓ Instant Access</span>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
