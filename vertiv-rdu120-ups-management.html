@@ -57,6 +57,23 @@
             letter-spacing: 1px;
         }
         
+        .launch-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
         .hero h1 {
             font-size: 2.8rem;
             font-weight: 800;
@@ -142,6 +159,26 @@
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 16px;
+        }
+        
+        .price-regular {
+            text-decoration: line-through;
+            opacity: 0.7;
+            font-size: 1.3rem;
+            margin-right: 12px;
+        }
+        
+        .price-sale {
+            color: #ef4444;
+            font-size: 2rem;
+        }
+        
+        .urgency-text {
+            background: rgba(239, 68, 68, 0.2);
+            padding: 12px 24px;
+            border-radius: 8px;
+            margin: 16px 0;
+            font-weight: 600;
         }
         
         /* Section Styling */
@@ -309,6 +346,17 @@
             background: var(--bg-light);
         }
         
+        .launch-banner {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 32px;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
         .value-stack {
             background: var(--white);
             padding: 40px;
@@ -354,6 +402,37 @@
             margin-top: 20px;
             font-size: 1.3rem;
             font-weight: 700;
+        }
+        
+        .special-offer-box {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: var(--text);
+            padding: 32px;
+            border-radius: 12px;
+            margin: 32px 0;
+            text-align: center;
+        }
+        
+        .special-offer-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+        
+        .price-display {
+            margin: 20px 0;
+        }
+        
+        .price-display .regular {
+            text-decoration: line-through;
+            font-size: 1.5rem;
+            opacity: 0.7;
+            margin-right: 16px;
+        }
+        
+        .price-display .sale {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #dc2626;
         }
         
         .guarantee-box {
@@ -448,6 +527,10 @@
             .section h2 {
                 font-size: 1.8rem;
             }
+            
+            .price-display .sale {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
@@ -455,6 +538,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
+            <div class="launch-badge">🚀 Launch Week Special - Save $30!</div>
             <div class="hero-badge">OpenClaw Skill — One Command, Complete UPS Management</div>
             <h1>Vertiv RDU120 UPS Management — Monitor & Manage Your Critical Power Systems From Anywhere</h1>
             <p class="hero-subheadline">The OpenClaw skill that automates UPS monitoring and management — from health checks to firmware updates — through simple conversation</p>
@@ -465,7 +549,11 @@
             <p style="margin-bottom: 8px; opacity: 0.8;">Watch The Demo</p>
             <p style="font-size: 1rem; margin-bottom: 24px; opacity: 0.7;">See how one command gives you complete UPS visibility and control</p>
             
-            <div class="price-tag">Get Vertiv RDU120 UPS Management — $97</div>
+            <div class="price-tag">
+                <span class="price-regular">$97</span>
+                <span class="price-sale">$67</span>
+            </div>
+            <p class="urgency-text">⚡ Launch Week Only - Price Goes Up Soon!</p>
             <a href="#order" class="cta-button">Get Instant Access Now</a>
             <div class="cta-benefits">
                 <span>✓ 30-Day Guarantee</span>
@@ -506,7 +594,11 @@
             <p>What if you could get complete UPS visibility in seconds? What if you could manage everything through simple conversation?</p>
             
             <div style="text-align: center; margin-top: 40px;">
-                <div class="price-tag" style="color: var(--text);">Get Vertiv RDU120 UPS Management — $97</div>
+                <div class="price-tag" style="color: var(--text);">
+                    <span style="text-decoration: line-through; opacity: 0.5;">$97</span>
+                    <span style="color: #ef4444; font-size: 2rem; margin-left: 12px;">$67</span>
+                </div>
+                <p style="color: #ef4444; font-weight: 600; margin-bottom: 16px;">⚡ Launch Week Special</p>
                 <a href="#order" class="cta-button">Get Instant Access Now</a>
                 <div class="cta-benefits" style="color: var(--text-light);">
                     <span>✓ 30-Day Guarantee</span>
@@ -553,7 +645,11 @@
             <p>All you do is ask questions and get instant, actionable answers.</p>
             
             <div style="text-align: center; margin-top: 40px;">
-                <div class="price-tag" style="color: var(--text);">Get Vertiv RDU120 UPS Management — $97</div>
+                <div class="price-tag" style="color: var(--text);">
+                    <span style="text-decoration: line-through; opacity: 0.5;">$97</span>
+                    <span style="color: #ef4444; font-size: 2rem; margin-left: 12px;">$67</span>
+                </div>
+                <p style="color: #ef4444; font-weight: 600; margin-bottom: 16px;">⚡ Launch Week Special</p>
                 <a href="#order" class="cta-button">Get Instant Access Now</a>
                 <div class="cta-benefits" style="color: var(--text-light);">
                     <span>✓ 30-Day Guarantee</span>
@@ -617,7 +713,11 @@
             <p style="text-align: center; margin-top: 32px;">Everything is automated. You just ask natural questions and get instant answers. What used to take 30-60 minutes now takes seconds.</p>
             
             <div style="text-align: center; margin-top: 40px;">
-                <div class="price-tag" style="color: var(--text);">Get Vertiv RDU120 UPS Management — $97</div>
+                <div class="price-tag" style="color: var(--text);">
+                    <span style="text-decoration: line-through; opacity: 0.5;">$97</span>
+                    <span style="color: #ef4444; font-size: 2rem; margin-left: 12px;">$67</span>
+                </div>
+                <p style="color: #ef4444; font-weight: 600; margin-bottom: 16px;">⚡ Launch Week Special</p>
                 <a href="#order" class="cta-button">Get Instant Access Now</a>
                 <div class="cta-benefits" style="color: var(--text-light);">
                     <span>✓ 30-Day Guarantee</span>
@@ -656,7 +756,11 @@
             <p style="text-align: center; margin-top: 32px; font-weight: 600;">Connect. Ask. Act.<br>From complex interface navigation to instant answers in seconds, not minutes.</p>
             
             <div style="text-align: center; margin-top: 40px;">
-                <div class="price-tag" style="color: var(--text);">Get Vertiv RDU120 UPS Management — $97</div>
+                <div class="price-tag" style="color: var(--text);">
+                    <span style="text-decoration: line-through; opacity: 0.5;">$97</span>
+                    <span style="color: #ef4444; font-size: 2rem; margin-left: 12px;">$67</span>
+                </div>
+                <p style="color: #ef4444; font-weight: 600; margin-bottom: 16px;">⚡ Launch Week Special</p>
                 <a href="#order" class="cta-button">Get Instant Access Now</a>
                 <div class="cta-benefits" style="color: var(--text-light);">
                     <span>✓ 30-Day Guarantee</span>
@@ -672,6 +776,10 @@
         <div class="container">
             <div class="section-eyebrow">v. Investment</div>
             <h2>Here's Everything You Get Today</h2>
+            
+            <div class="launch-banner">
+                🚀 LAUNCH WEEK SPECIAL — Save $30! Regular Price $97, Today Only $67
+            </div>
             
             <div class="value-stack">
                 <div class="value-item">
@@ -720,13 +828,24 @@
                 </div>
             </div>
             
+            <div class="special-offer-box">
+                <h3>🚀 Launch Week Special</h3>
+                <p>Be one of the first to get the Vertiv RDU120 UPS Management skill at the special launch price.</p>
+                <div class="price-display">
+                    <span class="regular">$97</span>
+                    <span class="sale">$67</span>
+                </div>
+                <p style="font-weight: 600; margin-top: 16px;">Save $30 — Limited Time Only!</p>
+            </div>
+            
             <div class="guarantee-box">
                 <h3>30-Day "Love It or Leave It" Guarantee</h3>
                 <p>Try Vertiv RDU120 UPS Management risk-free for 30 days. Connect to your UPS. Run health checks. See how fast it really is. If you're not completely satisfied for any reason, just let us know and we'll refund every penny. No questions asked.</p>
             </div>
             
             <div class="final-price" id="order">
-                <h3>Your Investment Today: $97</h3>
+                <h3>Your Investment Today: <span style="text-decoration: line-through; opacity: 0.5;">$97</span> <span style="color: #ef4444; font-size: 2rem;">$67</span></h3>
+                <p style="color: #ef4444; font-weight: 600; margin-bottom: 16px;">⚡ Launch Week Special — Price Goes Up Soon!</p>
                 <a href="[YOUR_CHECKOUT_LINK]" class="cta-button">Get Instant Access Now</a>
                 <div class="cta-benefits" style="color: var(--text-light);">
                     <span>✓ 30-Day Guarantee</span>
@@ -774,7 +893,11 @@
             </div>
             
             <div style="text-align: center; margin-top: 40px;">
-                <div class="price-tag" style="color: var(--text);">Get Vertiv RDU120 UPS Management — $97</div>
+                <div class="price-tag" style="color: var(--text);">
+                    <span style="text-decoration: line-through; opacity: 0.5;">$97</span>
+                    <span style="color: #ef4444; font-size: 2rem; margin-left: 12px;">$67</span>
+                </div>
+                <p style="color: #ef4444; font-weight: 600; margin-bottom: 16px;">⚡ Launch Week Special — Don't Miss Out!</p>
                 <a href="[YOUR_CHECKOUT_LINK]" class="cta-button">Get Instant Access Now</a>
                 <div class="cta-benefits" style="color: var(--text-light);">
                     <span>✓ 30-Day Guarantee</span>
@@ -798,6 +921,12 @@
             <p>You can keep managing UPS systems the old way — logging into web interfaces, decoding SNMP, switching between tools, and compiling reports manually. Or you can let AI handle the complexity while you focus on strategic decisions and proactive management.</p>
             
             <p>The skill is ready. The documentation is complete. Your UPS systems could be under AI-powered management today.</p>
+            
+            <div style="margin: 32px 0;">
+                <span style="text-decoration: line-through; opacity: 0.7; font-size: 1.5rem;">$97</span>
+                <span style="font-size: 3rem; font-weight: 800; margin: 0 16px;">$67</span>
+                <p style="font-weight: 600; margin-top: 8px;">🚀 Launch Week Special</p>
+            </div>
             
             <a href="[YOUR_CHECKOUT_LINK]" class="cta-button" style="background: var(--white); color: var(--primary);">Get Instant Access Now</a>
             <div class="cta-benefits">
